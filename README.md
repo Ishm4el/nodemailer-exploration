@@ -8,14 +8,18 @@ run:
 node inline-base64-demo.js
 ```
 
-## demo.js
+You may click on the generated link to see an example of the embedded image.
+
+
+## html-to-text-demo.js
 Dipali Makadia
 Demonstrates the html to text plugin
 
 run:
 ```javascript
-node demo.js
+node html-to-text-demo.js
 ```
+
 
 ## handlebars-demo.js
 Tomas Velarde
