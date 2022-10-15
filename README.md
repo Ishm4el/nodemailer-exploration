@@ -29,3 +29,13 @@ run:
 ```javascript
 node handlebase-demo.js
 ```
+
+## sendmail.js 
+Avniben Motibhai
+Demonstrates the sending of mail using nodemailer
+
+run:
+```javascript
+node sendmail.js
+```
+
