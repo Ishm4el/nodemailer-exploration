@@ -1,6 +1,8 @@
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
+const path = require('path');
+
 //add the express-handlebars plugin
 var hbs = require('nodemailer-express-handlebars');
 
@@ -17,12 +19,22 @@ var transporter = nodemailer.createTransport(smtpTransport({
     //passing the engine being used, express-handlebars
     viewEngine: 'express-handlebars',
     //the file path where the views/templates are stored
-    viewPath: './nodemailer-exploration-main2'
+    viewPath: '.'
   // viewPath: './viewPath'
     }
 
+const handlebarOptions = {
+  viewEngine: {
+    extName: ".handlebars",
+    partialsDir: path.resolve(__dirname, "emailTemplate"),
+    defaultLayout: false,
+  },
+  viewPath: path.resolve(__dirname, "emailTemplate"),
+  extName: ".handlebars",
+};
+
 //attach the plugin to the nodemailer transporter
-  transporter.use('compile', hbs(options));
+  transporter.use('compile', hbs(handlebarOptions));
 
   var mailOptions = {
     from: 'testemailsendercs5220@gmail.com',
@@ -30,7 +42,7 @@ var transporter = nodemailer.createTransport(smtpTransport({
     subject: 'Sending Email using nodemailer',
     text: 'Hi its demo message!',
     //added template to previous mailOptions object, references file with template
-    template: 'testTemplate'
+    template: 'template2'
   };
 
  //transporter.sendMail(mail);
